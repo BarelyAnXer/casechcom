@@ -1,7 +1,10 @@
 import Head from 'next/head'
 import styles from "../styles/Home.module.css"
+import axios from "axios";
+import mysql from "mysql2/promise"
 
-export default function Home() {
+export default function Home({users}) {
+  console.log(users)
   return (
     <>
       <Head>
@@ -13,7 +16,23 @@ export default function Home() {
         <link rel="icon"
               href="/favicon.ico"/>
       </Head>
-      
+      home
     </>
   )
 }
+
+export const getStaticProps = async () => {
+  const connection = await mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'schema_name'
+  });
+
+  const [rows, fields] = await connection.execute("SELECT * FROM student");
+
+  return {
+    props: {
+      users: rows
+    }
+  }
+};
