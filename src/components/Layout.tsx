@@ -1,6 +1,5 @@
 import React from 'react';
 import Drawer from "@mui/material/Drawer";
-import Typography from "@mui/material/Typography";
 import styles from "./Layout.module.css"
 import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import Grades from "../pages/Grades";
@@ -8,7 +7,7 @@ import Attendance from "../pages/Attendance";
 import {List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import {AddCircleOutlineOutlined, SubjectOutlined} from "@mui/icons-material";
 
-function Layout() {
+function Layout({children}: any) {
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -20,26 +19,24 @@ function Layout() {
       path: '/Grades'
     },
     {
-      text: 'Dashboard',
+      text: 'Attendance',
       icon: <AddCircleOutlineOutlined color="secondary"/>,
       path: '/attendance'
     },
   ];
 
+  if (location.pathname === "/login") {
+    return null;
+  }
 
   return (
     <>
       <div className={styles.root}>
         <Drawer variant={"permanent"}
+                className={styles.drawer}
                 anchor={"left"}
                 classes={{paper: styles.drawerPaper}}
         >
-          <div>
-            <Typography variant="h5">
-              C A S C H C O M
-            </Typography>
-          </div>
-
           <List>
             {menuItems.map((item) => (
               <ListItemButton
@@ -57,7 +54,7 @@ function Layout() {
         </Drawer>
 
         <div className={styles.page}>
-
+          {children}
         </div>
       </div>
     </>

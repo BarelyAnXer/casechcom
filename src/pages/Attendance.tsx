@@ -6,6 +6,7 @@ function Attendance() {
       <p style={{
         fontSize: "200px"
       }}>Attendance</p>
+
     </>
   );
 }

@@ -1,6 +1,9 @@
 .root {
     display: flex;
-    flex-direction: column;
+}
+
+.drawer{
+    width: 240px;
 }
 
 .drawerPaper {

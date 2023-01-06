@@ -1,7 +1,9 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import Layout from "./components/Layout";
 import React from "react";
 import Login from "./pages/Login";
+import Attendance from "./pages/Attendance";
+import Grades from "./pages/Grades";
 
 export default function App() {
   return (
@@ -16,12 +18,20 @@ export default function App() {
           path="/login"
           element={<Login/>}
         />
-
-        <Route
-          path="/dashboard"
-          element={<Layout/>}
-        />
       </Routes>
+
+      <Layout>
+        <Routes>
+        <Route
+          path="/attendance"
+          element={<Attendance/>}
+        />
+        <Route
+          path="/grades"
+          element={<Grades/>}
+        />
+        </Routes>
+      </Layout>
     </>
 
   );
