@@ -1,0 +1,13 @@
+.root {
+    display: flex;
+    flex-direction: column;
+}
+
+.drawerPaper {
+    width: 240px;
+}
+
+.page {
+    background: #f9f9f9;
+    width: 100%;
+}

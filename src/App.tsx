@@ -1,78 +1,28 @@
-import './App.css'
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Layout from "./components/Layout";
+import React from "react";
+import Login from "./pages/Login";
 
-function App() {
-  // const [state, setState] = useState("");
-  const [usernameRegister, setUsernameRegister] = useState("");
-  const [passwordRegister, setPasswordRegister] = useState("");
-
-  const [usernameLogin, setUsernameLogin] = useState("");
-  const [passwordLogin, setPasswordLogin] = useState("");
-
-  const [status, setStatus] = useState("");
-
-  useEffect(() => {
-    const test = async () => {
-      const response = await axios.get("http://localhost:5000/test");
-      console.log(response.data)
-    }
-    test()
-  }, [])
-
-  const login = async () => {
-    const response = await axios.post("http://localhost:5000/login", {
-      username: usernameLogin,
-      password: passwordLogin
-    })
-    console.log(response.data)
-  }
-
-  const register = async () => {
-    const response = await axios.post("http://localhost:5000/register", {
-      firstname: usernameRegister,
-      password: passwordRegister
-    })
-    console.log(response.data)
-  }
-
+export default function App() {
   return (
     <>
-      <h1>Register</h1>
-      <input type="text"
-             onChange={(event) => {
-               setUsernameRegister(event.target.value);
-             }
-             }/><br/>
-      <input type="text"
-             onChange={(event) => {
-               setPasswordRegister(event.target.value);
-             }
-             }/><br/>
-      {/*<select name="cars"*/}
-      {/*        id="cars">*/}
-      {/*  <option value="Student">Student</option>*/}
-      {/*  <option value="Teacher">Teacher</option>*/}
-      {/*</select><br/>*/}
-      <button onClick={register}>register</button>
+      <Routes>
+        <Route
+          path="/"
+          element={<p>home</p>}
+        />
 
-      <h1>Login</h1>
+        <Route
+          path="/login"
+          element={<Login/>}
+        />
 
-      <input type="text"
-             onChange={(event) => {
-               setUsernameLogin(event.target.value);
-             }}/><br/>
-      <input type="text"
-             onChange={(event) => {
-               setPasswordLogin(event.target.value);
-             }}/><br/>
-      <button onClick={login}>login</button>
-
-      <h1>{status}</h1>
-
+        <Route
+          path="/dashboard"
+          element={<Layout/>}
+        />
+      </Routes>
     </>
+
   );
-
 }
-
-export default App
