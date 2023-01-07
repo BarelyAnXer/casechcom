@@ -1,0 +1,18 @@
+.container {
+    /*background: rgb(37, 37, 190);*/
+    /*background: linear-gradient(90deg, rgba(37, 37, 190, 1) 0%, rgba(236, 5, 195, 1) 100%);*/
+    /*min-height: 100vh;*/
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /*display: flex;*/
+}
+
+/*.item1 {*/
+/*    background-color: gray;*/
+/*    width: 50%;*/
+/*}*/
+
+/*.item2 {*/
+/*    width: 50%;*/
+/*}*/

@@ -1,9 +1,10 @@
 import {Routes, Route} from 'react-router-dom'
-import Layout from "./components/Layout";
+import Layout from "./components/Layout/Layout";
 import React from "react";
-import Login from "./pages/Login";
+import Login from "./pages/Login/Login";
 import Attendance from "./pages/Attendance";
 import Grades from "./pages/Grades";
+import FAQ from "./pages/FAQ/FAQ";
 
 export default function App() {
   return (
@@ -22,14 +23,18 @@ export default function App() {
 
       <Layout>
         <Routes>
-        <Route
-          path="/attendance"
-          element={<Attendance/>}
-        />
-        <Route
-          path="/grades"
-          element={<Grades/>}
-        />
+          <Route
+            path="/attendance"
+            element={<Attendance/>}
+          />
+          <Route
+            path="/grades"
+            element={<Grades/>}
+          />
+          <Route
+            path="/faq"
+            element={<FAQ/>}
+          />
         </Routes>
       </Layout>
     </>

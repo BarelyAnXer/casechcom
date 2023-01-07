@@ -1,0 +1,17 @@
+.root {
+    display: flex;
+}
+
+.drawer {
+    width: 240px;
+}
+
+.drawerPaper {
+    width: 240px;
+}
+
+.page {
+    background: #f9f9f9;
+    width: 100%;
+    min-height: 100vh;
+}
